@@ -1,0 +1,18 @@
+{
+  "name": "issueflow-local",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node scripts/start.mjs",
+    "db:start": "node scripts/database.mjs",
+    "db:test": "node scripts/database.mjs --test",
+    "test:api": "uv run --project backend python scripts/test-backend.py"
+  },
+  "dependencies": {
+    "embedded-postgres": "18.6.0-beta.19"
+  }
+}

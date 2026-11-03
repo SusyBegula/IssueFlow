@@ -1,0 +1,19 @@
+[project]
+name = "issueflow-api"
+version = "0.1.0"
+description = "Local PostgreSQL storage and authentication for IssueFlow."
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi==0.135.1",
+    "uvicorn[standard]==0.41.0",
+    "psycopg[binary]==3.3.3",
+    "pydantic-settings==2.13.1",
+    "pillow==13.0.0",
+]
+
+[dependency-groups]
+dev = ["pytest==9.0.2", "httpx==0.28.1"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

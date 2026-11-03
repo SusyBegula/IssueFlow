@@ -1,0 +1,26 @@
+# Supabase supplies PostgreSQL separately; this creates one free Render service.
+services:
+  - type: web
+    name: issueflow
+    runtime: python
+    plan: free
+    buildCommand: bash scripts/render-build.sh
+    startCommand: bash scripts/render-start.sh
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_SCHEMA
+        value: issueflow
+      - key: AUTH_USERNAME
+        value: susybegula
+      - key: AUTH_PASSWORD_HASH
+        sync: false
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: CORS_ORIGINS
+        value: "[]"
+      - key: SESSION_HOURS
+        value: "12"
